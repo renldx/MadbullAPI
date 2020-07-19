@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MadbullAPI.Enums;
@@ -14,10 +15,10 @@ namespace MadbullAPI.Models
 
         public ResistanceType ResistanceType { get; set; }
 
-        // 1RM
+        // 1RM in KGs
         public double ResistanceUnit { get; set; }
 
         // Ex. Leg Day, Lower Body, Push, etc.
-        public string[] Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
     }
 }

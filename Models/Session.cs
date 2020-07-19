@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -10,10 +10,10 @@ namespace MadbullAPI.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public string Exercise { get; set; }
+        public Exercise Exercise { get; set; }
 
         public int Order { get; set; }
 
-        public int Sets { get; set; }
+        public IEnumerable<Set> Sets { get; set; }
     }
 }

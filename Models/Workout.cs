@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MadbullAPI.Enums;
 
 namespace MadbullAPI.Models
 {
@@ -12,11 +14,10 @@ namespace MadbullAPI.Models
 
         public DateTime Date { get; set; }
 
-        public string Cycle { get; set; }
+        public Cycle Cycle { get; set; }
 
-        // Light, Volume, Intensity, Other
-        public int Type { get; set; }
+        public WorkoutType WorkoutType { get; set; }
 
-        public int Sessions { get; set; }
+        public IEnumerable<Session> Sessions { get; set; }
     }
 }
