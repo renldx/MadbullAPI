@@ -8,9 +8,15 @@ namespace MadbullAPI.Models
 {
     public class Workout
     {
+        public Workout(Cycle cycle, IEnumerable<Session>? sessions = null)
+        {
+            Cycle = cycle;
+            Sessions = sessions ?? new List<Session>();
+        }
+
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
 
         public DateTime Date { get; set; }
 

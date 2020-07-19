@@ -20,7 +20,7 @@ namespace MadbullAPI.Services
         public List<Exercise> Get() => exercises.Find(exercise => true).ToList();
 
         public Exercise Get(string id) =>
-            exercises.Find<Exercise>(exercise => exercise.Id == id).FirstOrDefault();
+            exercises.Find(exercise => exercise.Id == id).FirstOrDefault();
 
         public Exercise Create(Exercise exercise)
         {

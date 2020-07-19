@@ -13,12 +13,12 @@ namespace MadbullAPI.Models
 
     public class MadbullDatabaseSettings : IMadbullDatabaseSettings
     {
-        public string ExercisesCollectionName { get; set; }
-        public string CyclesCollectionName { get; set; }
-        public string WorkoutsCollectionName { get; set; }
-        public string SessionsCollectionName { get; set; }
-        public string SetsCollectionName { get; set; }
-        public string ConnectionString { get; set; }
-        public string DatabaseName { get; set; }
+        public string ExercisesCollectionName { get; set; } = null!;
+        public string CyclesCollectionName { get; set; } = null!;
+        public string WorkoutsCollectionName { get; set; } = null!;
+        public string SessionsCollectionName { get; set; } = null!;
+        public string SetsCollectionName { get; set; } = null!;
+        public string ConnectionString { get; set; } = null!;
+        public string DatabaseName { get; set; } = null!;
     }
 }

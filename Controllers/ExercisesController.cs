@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using MongoDB.Driver;
 using MadbullAPI.Models;
 using MadbullAPI.Services;
 
@@ -33,7 +35,14 @@ namespace MadbullAPI.Controllers
         [HttpPost]
         public ActionResult<Exercise> Create(Exercise exercise)
         {
-            exerciseService.Create(exercise);
+            try
+            {
+                exerciseService.Create(exercise);
+            }
+            catch(MongoWriteException e)
+            {
+                Console.Write($"{e} {e.Message}");
+            }
 
             return CreatedAtRoute("GetExercise", new { id = exercise.Id.ToString() }, exercise);
         }

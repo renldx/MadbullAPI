@@ -7,9 +7,17 @@ namespace MadbullAPI.Models
 {
     public class Exercise
     {
+        public Exercise(string name, ResistanceType resistanceType, double resistanceUnit, IEnumerable<string>? tags = null)
+        {
+            Name = name;
+            ResistanceType = resistanceType;
+            ResistanceUnit = resistanceUnit;
+            Tags = tags ?? new List<string>();
+        }
+
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
 
         public string Name { get; set; }
 

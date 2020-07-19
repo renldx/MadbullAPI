@@ -2,9 +2,10 @@ namespace MadbullAPI.Enums
 {
     public enum WorkoutType
     {
-        Other,
+        Undefined,
         Five,
         Recovery,
-        Three
+        Three,
+        Other
     }
 }
