@@ -5,7 +5,7 @@ Simple .NET Core REST API for Madbull using MongoDB.
 
 - [x] Initial prototype
 - [x] Configure DB schema
-- [ ] Add integration testing
+- [x] Add integration testing
 - [ ] Add business layer
 - [ ] Add unit testing
 - [ ] Add authentication
