@@ -44,7 +44,7 @@ namespace MadbullAPI.Controllers
                 Console.Write($"{e} {e.Message}");
             }
 
-            return CreatedAtRoute("GetExercise", new { id = exercise.Id.ToString() }, exercise);
+            return CreatedAtRoute("GetExercise", new { id = exercise.Id }, exercise);
         }
 
         [HttpPut("{id:length(24)}")]
@@ -54,7 +54,14 @@ namespace MadbullAPI.Controllers
 
             if (exercise is Exercise)
             {
-                exerciseService.Update(id, exerciseIn);
+                try
+                {
+                    exerciseService.Update(id, exerciseIn);
+                }
+                catch(MongoWriteException e)
+                {
+                    Console.Write($"{e} {e.Message}");
+                }
             }
             else
             {

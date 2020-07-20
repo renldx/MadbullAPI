@@ -66,5 +66,11 @@ namespace MadbullAPI.Tests.Integration
 
             Assert.True(exercise is null);
         }
+
+        [Fact]
+        public async Task WorkoutServicesCRUD()
+        {
+            Assert.True(false);
+        }
     }
 }

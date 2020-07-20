@@ -35,6 +35,7 @@ namespace MadbullAPI
                 sp.GetRequiredService<IOptions<MadbullDatabaseSettings>>().Value);
 
             services.AddSingleton<ExerciseService>();
+            services.AddSingleton<WorkoutService>();
 
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing());

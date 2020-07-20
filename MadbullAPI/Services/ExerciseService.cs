@@ -5,15 +5,12 @@ using MadbullAPI.Models;
 
 namespace MadbullAPI.Services
 {
-    public class ExerciseService
+    public class ExerciseService : BaseService
     {
         private readonly IMongoCollection<Exercise> exercises;
 
-        public ExerciseService(IMadbullDatabaseSettings settings)
+        public ExerciseService(IMadbullDatabaseSettings settings) : base(settings)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
-
             exercises = database.GetCollection<Exercise>(settings.ExercisesCollectionName);
         }
 
