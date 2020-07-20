@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Xunit;
 using MadbullAPI.Models;
 using MadbullAPI.Services;
+using System;
 
 namespace MadbullAPI.Tests.Integration
 {
@@ -40,10 +41,9 @@ namespace MadbullAPI.Tests.Integration
             Assert.True(exercises.Any());
             Assert.True(exercises.All(e => e is Exercise));
 
-            exercise = exerciseService.Get(exercises.First().Id);
+            exercise = exerciseService.Get(exercise.Id);
 
             Assert.True(exercise is Exercise);
-            Assert.True(exercise.Id == exercises.First().Id);
 
             // Update
 
@@ -70,7 +70,45 @@ namespace MadbullAPI.Tests.Integration
         [Fact]
         public async Task WorkoutServicesCRUD()
         {
-            Assert.True(false);
+            var workoutService = new WorkoutService(Fixture.DbSettings);
+
+            // Create
+
+            var workout = workoutService.Create(new Workout(new Cycle()) { Date = DateTime.Now });
+
+            Assert.True(workout is Workout);
+
+            // Read
+
+            var workouts = workoutService.Get();
+
+            Assert.True(workouts.Any());
+            Assert.True(workouts.All(w => w is Workout));
+
+            workout = workoutService.Get(workout.Id);
+
+            Assert.True(workout is Workout);
+
+            // Update
+
+            var newDate = DateTime.MinValue;
+
+            workout.Date = newDate;
+
+            workoutService.Update(workout.Id, workout);
+
+            workout = workoutService.Get(workout.Id);
+
+            Assert.True(workout is Workout);
+            Assert.True(workout.Date != DateTime.Now);
+
+            // Delete
+
+            workoutService.Remove(workout.Id);
+
+            workout = workoutService.Get(workout.Id);
+
+            Assert.True(workout is null);
         }
     }
 }
