@@ -21,7 +21,7 @@ namespace MadbullAPI.Tests.Integration
         {
             var exerciseService = new ExerciseService(Fixture.DbSettings);
 
-            // Create
+            // Create, need to test unique name constraint
 
             var name = "Squat";
             var type = Enums.ResistanceType.Dynamic;
